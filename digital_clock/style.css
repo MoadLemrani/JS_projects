@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* General Rules */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #001a33, #3a0ca3); /* Dark blue to purple */
+    color: #ffffff;
+    position: relative;
+}
+
+.container {
+    width: 800px;
+    height: 180px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.clock {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 187, 255, 0.1); /* Transparent cyan */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Square */
+.container::before {
+    content: '';
+    width: 180px;
+    height: 180px;
+    background-color: #00f0ff; /* Bright cyan */
+    border-radius: 5px;
+    position: absolute;
+    left: -50px;
+    top: -50px;
+    z-index: -1;
+}
+
+/* Circle */
+.container::after {
+    content: '';
+    width: 180px;
+    height: 180px;
+    background-color: #d633ff; /* Bright purple */
+    border-radius: 50%;
+    position: absolute;
+    right: -30px;
+    bottom: -50px;
+    z-index: -1;
+}
+
+/* Time */
+.clock span {
+    font-size: 80px;
+    width: 110px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+/* Time labels */
+.clock span::after {
+    font-size: 16px;
+    position: absolute;
+    bottom: -5px;
+    left: 54px;
+    transform: translateX(-50%);
+}
+
+#hrs::after {
+    content: "HOURS";
+}
+
+#min::after {
+    content: "MINS";
+}
+
+#sec::after {
+    content: "SEC";
+}
+
+/* ------------Animations------------ */
+/* Glowing clock box */
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    }
+}
+
+.clock {
+    animation: glow 4s ease-in-out infinite;
+}
+
+/* Shape gradient color shift */
+@keyframes colorShiftSquare {
+    0% {
+        background-color: #00f0ff;
+    }
+    50% {
+        background-color: #77e0f4;
+    }
+    100% {
+        background-color: #00f0ff;
+    }
+}
+
+.container::before {
+    animation: colorShiftSquare 8s ease-in-out infinite;
+}
+
+@keyframes colorShift {
+    0% {
+        background-color: #d633ff;
+    }
+    50% {
+        background-color: #ff7ce5;
+    }
+    100% {
+        background-color: #d633ff;
+    }
+}
+
+.container::after {
+    animation: colorShift 10s ease-in-out infinite;
+}
+
+/* Slide in on page load */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.container {
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+/* Floating shapes */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+.container::before,
+.container::after {
+    animation: float 6s ease-in-out infinite;
+}
+
+.container::before {
+    animation-delay: 0s;
+}
+.container::after {
+    animation-delay: 2s;
+}
