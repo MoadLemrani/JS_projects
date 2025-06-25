@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Enhanced Calculator</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="calculator">
+    <div class="display-container">
+      <div id="history"></div>
+      <div id="display">0</div>
+    </div>
+    <div class="buttons">
+      <!-- Row 1 -->
+      <button class="clear" id="clear">AC</button>
+      <button class="function" id="memory-clear">MC</button>
+      <button class="function" id="memory-recall">MR</button>
+      <button class="function" id="memory-add">M+</button>
+      
+      <!-- Row 2 -->
+      <button class="function" id="percent">%</button>
+      <button class="function" id="sqrt">√</button>
+      <button class="function" id="square">x²</button>
+      <button class="operator" data-op="/">÷</button>
+      
+      <!-- Row 3 -->
+      <button data-num="7">7</button>
+      <button data-num="8">8</button>
+      <button data-num="9">9</button>
+      <button class="operator" data-op="*">×</button>
+
+      <!-- Row 4 -->
+      <button data-num="4">4</button>
+      <button data-num="5">5</button>
+      <button data-num="6">6</button>
+      <button class="operator" data-op="-">−</button>
+
+      <!-- Row 5 -->
+      <button data-num="1">1</button>
+      <button data-num="2">2</button>
+      <button data-num="3">3</button>
+      <button class="operator" data-op="+">+</button>
+
+      <!-- Row 6 -->
+      <button data-num="0" class="zero">0</button>
+      <button data-num=".">.</button>
+      <button id="equal" class="equal">=</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

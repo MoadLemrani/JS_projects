@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #1e1e1e;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.player-container {
+  text-align: center;
+}
+
+.music-box {
+  background: #2c2c2c;
+  padding: 20px;
+  border-radius: 20px;
+  width: 300px;
+  box-shadow: 0 0 20px #000;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+#progress {
+  width: 100%;
+  margin-top: 15px;
+  -webkit-appearance: none;
+  height: 6px;
+  background: #444;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Thumb styles for different browsers */
+#progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #f72585;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  margin-top: -4px; /* align thumb vertically */
+}
+
+#progress::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #f72585;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+
+button {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 10px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #666;
+}

@@ -1,0 +1,192 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.calculator {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 25px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.calculator:hover {
+  transform: translateY(-5px);
+}
+
+.display-container {
+  margin-bottom: 25px;
+}
+
+#display {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 300;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: right;
+  user-select: none;
+  min-height: 70px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  word-break: break-all;
+  line-height: 1.2;
+}
+
+#history {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  padding: 8px 15px;
+  border-radius: 10px;
+  text-align: right;
+  margin-bottom: 10px;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+button {
+  padding: 20px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.operator {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  font-weight: 600;
+}
+
+.operator:hover {
+  background: linear-gradient(135deg, #ff5252, #d32f2f);
+}
+
+.equal {
+  background: linear-gradient(135deg, #4ecdc4, #44a08d);
+  grid-row: span 2;
+  font-weight: 600;
+}
+
+.equal:hover {
+  background: linear-gradient(135deg, #26a69a, #00695c);
+}
+
+.clear {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  font-weight: 600;
+}
+
+.clear:hover {
+  background: linear-gradient(135deg, #f57c00, #e65100);
+}
+
+.function {
+  background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+  font-size: 1rem;
+}
+
+.function:hover {
+  background: linear-gradient(135deg, #7b1fa2, #4a148c);
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+.memory {
+  background: linear-gradient(135deg, #3f51b5, #303f9f);
+  font-size: 0.9rem;
+}
+
+.memory:hover {
+  background: linear-gradient(135deg, #303f9f, #1a237e);
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    padding: 20px;
+    max-width: 320px;
+  }
+  
+  button {
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+  
+  #display {
+    font-size: 2rem;
+    padding: 15px;
+  }
+}
+
+.error {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
