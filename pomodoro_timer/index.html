@@ -1,0 +1,52 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="timer-container" id="timerContainer">
+    <div class="timer-header">
+      <div class="mode-indicator work" id="modeIndicator">
+        <span>🍅</span>
+        <span id="modeText">Focus Time</span>
+      </div>
+      <div class="sessions-count">
+        Session <span id="sessionCount">1</span> of ∞
+      </div>
+    </div>
+
+    <div class="timer-display">
+      <div class="progress-ring">
+        <svg class="progress-circle" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="workGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#ff6b6b" />
+              <stop offset="100%" style="stop-color:#ee5a52" />
+            </linearGradient>
+            <linearGradient id="breakGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#4ecdc4" />
+              <stop offset="100%" style="stop-color:#44a08d" />
+            </linearGradient>
+          </defs>
+          <circle class="progress-bg" cx="50" cy="50" r="45" />
+          <circle class="progress-bar work" id="progressBar" cx="50" cy="50" r="45"
+            stroke-dasharray="283" stroke-dashoffset="283" />
+        </svg>
+      </div>
+      <div class="time-text" id="timeDisplay">25:00</div>
+    </div>
+
+    <div class="controls">
+      <button class="control-btn secondary" id="resetBtn" title="Reset">↻</button>
+      <button class="control-btn primary" id="playPauseBtn" title="Start">▶</button>
+      <button class="control-btn secondary" id="skipBtn" title="Skip">⏭</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
